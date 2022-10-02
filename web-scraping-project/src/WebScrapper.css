@@ -1,0 +1,78 @@
+.WebScrapperMain {
+  margin: 50px;
+}
+
+.WebScrapperAddNewUser, .WebScrapperSelectUser, .WebScrapperPrevNext {
+  background-color: white;
+  font-size: 18px;
+  color: #282c34;
+  margin: 25px auto;
+}
+
+.WebScrapperAddNewUser h4{
+  margin: 0 auto;
+}
+
+.WebScrapperAddNewUser input{
+  width: 25%;
+  /* margin-top: 20px; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.WebScrapperAddNewUser button{
+  display: block;
+  width: 25%;
+  background-color: #282c34;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.WebScrapperSelectUser select{
+  background-color: #282c34;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.WebScrapperPrevNext button{
+  background-color: #282c34;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: bold;
+  
+}
+
+.WebScrapperPrevNext button.disabled{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.WebScrapperPrevNext button.prevButton{
+  margin-right: 10px;
+}
+
+.WebScrapperPrevNext button.nextButton{
+  margin-left: 10px;
+}
+

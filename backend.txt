@@ -1,0 +1,23 @@
+/users/{user_name}/repositories?page=1
+fetch repositories for given user name
+  if user name does not exist in database:
+    scrape info from github
+    if no info from github:
+      show 404 response
+  return user details and repositories
+**freshness of data: verify with the date of last scrape and check if repository name exists in database
+
+Tech:
+1. Databse: Sqlite3
+2. Web server: Flask
+3. Library for scraping: requests, BeautifulSoup
+
+
+{
+  "name": xyz, abc
+}
+
+[
+  {"name": abc},
+  {"name": xyz}
+]
