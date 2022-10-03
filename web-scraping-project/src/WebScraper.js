@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import './WebScrapper.css';
+import './WebScraper.css';
 import React, { useState, useEffect }  from 'react';
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
-function WebScrapper() {
+function WebScraper() {
   const params = useParams();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,6 +26,7 @@ function WebScrapper() {
     loadInitialState();
   },[params.userName, searchParams.get('page')]);
   const selectUser = async (event) => {
+    setPage(1);
     navigate(`/users/${event.target.value}/repositories`);
   }
   const onChangeNewUserName =  (event) => {
@@ -72,14 +73,14 @@ function WebScrapper() {
     setUserList(data.user_list);
   } 
    return (
-    <div className="WebScrapperMain">
-      <div className="WebScrapperAddNewUser">
+    <div className="WebScraperMain">
+      <div className="WebScraperAddNewUser">
         <h4>Enter a new user to scrape</h4>
           <input type="text" id="user_name" onChange={onChangeNewUserName}/> 
           <button onClick={addNewUser}>Submit</button>
         <h3>{message}</h3> 
       </div>
-      <div className="WebScrapperSelectUser">
+      <div className="WebScraperSelectUser">
         <select onChange={selectUser} id="user_list" value={userName}>
           {
               userList.map((user, i) => {
@@ -93,11 +94,11 @@ function WebScrapper() {
           })
         }
       </div>
-      <div className="WebScrapperPrevNext">
+      <div className="WebScraperPrevNext">
         <button onClick={getPrevPage} className="prevButton" disabled={!hasPrev}>Previous</button> 
         <button onClick={getNextPage} className="nextButton" disabled={!hasNext}>Next</button> 
       </div>
       </div>
   );
 }
-export default WebScrapper;
+export default WebScraper;
