@@ -56,7 +56,7 @@ function WebScraper() {
     if (pageNumber == 1){
       setHasPrev(false);
     }
-    if (pageNumber>1 && pageNumber<totalNumberOfPages) {
+    if (pageNumber>1 && pageNumber<=totalNumberOfPages) {
       setHasPrev(true);
     }
     if (pageNumber<totalNumberOfPages) {
