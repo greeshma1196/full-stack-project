@@ -1,16 +1,8 @@
-from crypt import methods
-from email import message
-import imp
-from shutil import unregister_unpack_format
-from unicodedata import name
-from unittest import result
-from urllib import response
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
 from sqlite3 import Error
 from flask import Flask, jsonify, redirect, render_template, request, url_for
-import time
 
 app = Flask(__name__)
 
@@ -127,7 +119,7 @@ def scrape_user_info(user_name):
         github_info = scrape_user_repositories(user_name)
         # check for error code
         if github_info == 404:
-            response = jsonify(message="User does not exist",
+            response = jsonify(message="User does not exist in github",
                                status="USER_NOT_FOUND")
             response.headers.add("Access-Control-Allow-Origin", "*")
             return response
@@ -193,4 +185,4 @@ if __name__ == "__main__":
     conn.commit()
     conn.close()
 
-    app.run()
+    app.run(host='0.0.0.0')

@@ -60,3 +60,9 @@ The dropdown menu consists of the list of all the user names present in the data
   A query parameter named "page" is used to keep track of the page number
 
 On click of the submit button after entering a user name in the input box, Route 2 mentioned in the backend section is called to verify if the user already exists in the database, if the user name does not exist in github or if the user has been added. The message response is displayed for the client to see. After the new user has been added, it is redirected to URL "http://localhost:3000/users/<user_name>/repositories" showing the list of repositories present for the said user in the database.
+
+## To execute:
+
+1. Build docker compose file: docker-compose build
+2. Run the docker compose file: docker-compose up
+3. Open: http://localhost:3000/users

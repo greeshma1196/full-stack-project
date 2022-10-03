@@ -52,12 +52,16 @@ function WebScraper() {
     const repositories = await fetch(`http://127.0.0.1:5000/users/${user_name}/repositories?page=${pageNumber}`);
     const data = await repositories.json();
     const totalRepositories = data.total;
-    const totalNumberOfPages = Math.ceil(totalRepositories/10);
+    const totalNumberOfPages = Math.ceil(totalRepositories/10); 
+    if (totalNumberOfPages == 0){
+      setHasNext(false);
+      setHasPrev(false);
+    }
     if (pageNumber == 1){
       setHasPrev(false);
     }
     if (pageNumber>1 && pageNumber<=totalNumberOfPages) {
-      setHasPrev(true);
+      setHasPrev(true); 
     }
     if (pageNumber<totalNumberOfPages) {
       setHasNext(true);
