@@ -22,7 +22,7 @@ The Flask app is run with the following functions:
    Response = {
    user_list: [{"user_name":"name1"}, {"user_name":"name2"}]
    }
-2. Route 2: /users/<user_name>: Scrapes the public repositories of the user
+2. Route 2: /users/<user_name>: Scrapes the public repositories of the user.
    It does the following checks:
    1. Checks if the user name exists in the database
       If true: Response = {
@@ -34,7 +34,11 @@ The Flask app is run with the following functions:
       message: "User does not exist",
       status: "USER_NOT_FOUND"
       }
-      If the above two checks fail, the public repositories are scraped and stored to the databse
+      If the above two checks fail, the public repositories are scraped and stored to the databse with the following response
+      Response = {
+      message: "User has been successfully added to database",
+      status: "USER_ADDED"
+      }
 3. Route 3: /users/<user_name>/repositories: Shows the list of repository names for a given user name. At a time only 10 repository names are shown, if there are more, they are shown in the following pages.
    Response = {
    user_name: user_name,
@@ -56,10 +60,10 @@ The dropdown menu consists of the list of all the user names present in the data
 - On the first page: only the next button will be enabled
 - On the last page: only the previous button will be enabled
 - On the remaining pages: both next and previous buttons will be enabled
-  On select of user name from the dropdown menu, URL: http://localhost:3000/users/<user_name>/repositories
+  On selection of user name from the dropdown menu, URL: http://localhost:3000/users/<user_name>/repositories
   A query parameter named "page" is used to keep track of the page number
 
-On click of the submit button after entering a user name in the input box, Route 2 mentioned in the backend section is called to verify if the user already exists in the database, if the user name does not exist in github or if the user has been added. The message response is displayed for the client to see. After the new user has been added, it is redirected to URL "http://localhost:3000/users/<user_name>/repositories" showing the list of repositories present for the said user in the database.
+On click of the submit button after entering a user name in the input box, Route 2 mentioned in the backend section is called to verify if the user already exists in the database, or if the user name does not exist in github or if the user has been added. The message response is displayed for the client to see. After the new user has been added, it is redirected to URL "http://localhost:3000/users/<user_name>/repositories" showing the list of repositories present for the said user in the database.
 
 ## To execute:
 
